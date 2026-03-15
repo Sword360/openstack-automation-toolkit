@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 📘 OpenStack Automation Toolkit — Usage Guide
 This guide explains how to use the OpenStack Automation Toolkit to provision, patch, and manage OpenStack controller and compute nodes using Ansible, Bash, and Jinja2 templates.
 The toolkit is designed to ensure consistency, reliability, and 50%+ reduction in manual effort.
@@ -130,3 +131,19 @@ You now have everything needed to:
 ✔ Extend automation modularly
 ✔ Maintain consistent environments
 Happy automating! 🚀
+=======
+# 📘 OpenStack Automation Toolkit — Usage Guide
+
+This document explains how to use the provisioning and patching automation included in the **OpenStack Automation Toolkit**.  
+The toolkit uses **Ansible**, **Bash**, and **Jinja2 templates** to manage OpenStack nodes efficiently and consistently.
+
+---
+
+# 🔧 Prerequisites
+
+Before using the toolkit, ensure:
+
+## ✔ Ansible is installed
+```bash
+ansible --version
+>>>>>>> cb0cfa4 (changes v2)
