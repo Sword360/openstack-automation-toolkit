@@ -1,0 +1,6 @@
+---
+- name: Patch OpenStack Nodes
+  hosts: all
+  become: yes
+  roles:
+    - patch

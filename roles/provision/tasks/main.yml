@@ -1,0 +1,35 @@
+---
+- name: Set hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Deploy NTP configuration
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify: Restart NTP Service
+
+- name: Install required packages
+  package:
+    name:
+      - python3
+      - openstack-selinux
+      - wget
+      - yum-utils
+    state: present
+
+- name: Deploy OpenStack repo template
+  template:
+    src: openstack.repo.j2
+    dest: /etc/yum.repos.d/openstack.repo
+
+- name: System update
+  yum:
+    name: "*"
+    state: latest
+
+handlers:
+  - name: Restart NTP Service
+    service:
+      name: chronyd
+      state: restarted

@@ -1,0 +1,22 @@
+---
+- name: Check updates
+  yum:
+    list: updates
+  register: update_list
+
+- debug:
+    msg: "Packages to update: {{ update_list.results | length }}"
+
+- name: Apply all patches
+  yum:
+    name: "*"
+    state: latest
+
+- name: Reboot if required
+  reboot:
+    msg: "Reboot by Ansible after patching"
+    connect_timeout: 5
+    reboot_timeout: 600
+
+- name: Verify machine is back online
+  ping:

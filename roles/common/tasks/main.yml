@@ -1,0 +1,13 @@
+---
+- name: Ensure basic tools are installed
+  package:
+    name:
+      - vim
+      - git
+      - rsync
+      - net-tools
+    state: present
+
+- name: Set timezone to UTC
+  timezone:
+    name: UTC
