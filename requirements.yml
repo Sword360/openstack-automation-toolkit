@@ -1,0 +1,9 @@
+---
+collections:
+  - name: ansible.posix
+  - name: community.general
+  - name: openstack.cloud
+
+roles:
+  - name: dev-sec.os-hardening
+  - name: geerlingguy.ntp
