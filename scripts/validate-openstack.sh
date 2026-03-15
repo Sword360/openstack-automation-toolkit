@@ -1,0 +1,1 @@
+Placeholder for scripts/validate-openstack.sh
