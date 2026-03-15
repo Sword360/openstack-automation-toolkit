@@ -1,0 +1,33 @@
+# OpenStack Compute Node Configuration
+
+- name: Install OpenStack Compute
+  hosts: compute
+  tasks:
+    - name: Install nova computing packages
+      apt:
+        name: nova-compute
+        state: present
+
+    - name: Ensure nova-compute is running
+      service:
+        name: nova-compute
+        state: started
+        enabled: true
+
+    - name: Configure nova.conf
+      template:
+        src: nova.conf.j2
+        dest: /etc/nova/nova.conf
+      notify:
+        - Restart nova-compute
+
+    - name: Ensure nova-compute has restarted
+      service:
+        name: nova-compute
+        state: restarted
+
+  handlers:
+    - name: Restart nova-compute
+      service:
+        name: nova-compute
+        state: restarted
