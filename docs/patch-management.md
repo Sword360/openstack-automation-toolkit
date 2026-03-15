@@ -1,1 +1,0 @@
-Placeholder for docs/patch-management.md

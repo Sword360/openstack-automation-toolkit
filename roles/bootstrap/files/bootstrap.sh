@@ -1,1 +1,0 @@
-Placeholder for roles/bootstrap/files/bootstrap.sh
